@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en" class="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DevToolkit Pro – High-Performance Web & Utility Suite</title>
+    <meta name="description" content="Professional client-side utilities: Image compressor, SVG path optimizer, Web Crypto hasher, CSS clamp calculator, AI detector, and text humanizer. 100% local in your browser.">
+    <meta name="robots" content="index, follow">
+
+    <!-- Schema.org JSON-LD for Search Engines & AIs -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "DevToolkit Pro",
+      "url": "https://deine-domain.github.io",
+      "description": "Professional client-side tools for developers, designers, and writers.",
+      "applicationCategory": "DeveloperApplication",
+      "operatingSystem": "All",
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "EUR" },
+      "author": { "@type": "Person", "name": "Matteo Neumann" }
+    }
+    </script>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: { 50: '#f0f7ff', 100: '#e0effe', 500: '#0284c7', 600: '#0369a1', 900: '#0c4a6e' }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+        body { font-family: 'Plus Jakarta Sans', sans-serif; }
+        code, pre, textarea.code-font, input.code-font { font-family: 'JetBrains Mono', monospace; }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 min-h-screen flex flex-col justify-between selection:bg-brand-500 selection:text-white">
+
+    <!-- HEADER -->
+    <header class="bg-white/90 backdrop-blur-md border-b border-slate-200 sticky top-0 z-50 px-4 sm:px-8">
+        <div class="max-w-6xl mx-auto py-4 flex justify-between items-center">
+            <div class="flex items-center space-x-3">
+                <div class="w-9 h-9 rounded-xl bg-gradient-to-tr from-brand-600 to-indigo-600 flex items-center justify-center font-bold text-white shadow-md shadow-brand-500/10">&lt;/&gt;</div>
+                <div>
+                    <span class="text-lg font-bold tracking-tight text-slate-900">DevToolkit<span class="text-brand-600">.Pro</span></span>
+                    <span class="hidden md:inline-block ml-2 text-xs bg-slate-100 text-slate-600 px-2 py-0.5 rounded-full border border-slate-200 font-medium">100% Client-Side</span>
+                </div>
+            </div>
+            <nav class="flex items-center space-x-4 text-xs font-medium text-slate-600">
+                <a href="#tools" class="hover:text-brand-600 transition">Tools</a>
+                <a href="#imprint" class="hover:text-brand-600 transition">Imprint</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="bg-white border-b border-slate-200 py-10 px-6 sm:px-12">
+        <div class="max-w-3xl mx-auto text-center">
+            <h1 class="text-2xl sm:text-4xl font-extrabold text-slate-900 tracking-tight mb-3">
+                Real Tools. Zero Data Upload.
+            </h1>
+            <p class="text-slate-600 text-xs sm:text-sm max-w-xl mx-auto leading-relaxed">
+                Focused utilities including AI detector, text humanizer, and 2-step image processing. Runs entirely local in your browser.
+            </p>
+        </div>
+    </section>
+
+    <!-- MAIN TOOLS CONTAINER -->
+    <main id="tools" class="max-w-6xl mx-auto px-6 sm:px-10 py-10 flex-grow w-full">
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+
+            <!-- TOOL 1: WEBP IMAGE COMPRESSOR (Option 1) -->
+            <div class="bg-white border border-slate-200 rounded-2xl p-6 shadow-sm hover:shadow-md transition">
+                <div class="flex items-center justify-between mb-4">
+                    <h2 class="font-bold text-base text-slate-900 flex items-center gap-2">
+                        <span class="p-1 bg-brand-50 text-brand-600 rounded text-xs">01</span>
+                        Image Compressor (Opt 1)
+                    </h2>
+                </div>
+                <p class="text-xs text-slate-500 mb-3">Converts images directly to WebP live in your browser.</p>
+                <input type="file" id="img-input-1" accept="image/*" onchange="compressImageOpt1(event)" class="w-full text-xs text-slate-500 file:mr-2 file:py-1.5 file:px-3 file:rounded-lg file:border-0 file:text-xs file:font-semibold file:bg-brand-50 file:text-brand-700 hover:file:bg-brand-100 mb-3">
+                <a id="dl-link-1" class="hidden block w-full text-center bg-brand-600 hover:bg-brand-500 text-white font-medium text-xs py-2 rounded-xl transition">Download WebP</a>
+            </div>
+
+            <!-- TOOL 2: 2-STEP IMAGE WORKFLOW (Option 2) -->
+            <div class="bg-white border border-slate-200 rounded-2xl p-6 shadow-sm hover:shadow-md transition lg:col-span-2">
+                <div class="flex items-center justify-between mb-4">
+                    <h2 class="font-bold text-base text-slate-900 flex items-center gap-2">
+                        <span class="p-1 bg-brand-50 text-brand-600 rounded text-xs">02</span>
+                        2-Step Image Workflow (Upload &rarr; Edit &rarr; Download)
+                    </h2>
+                    <span class="text-xs bg-emerald-50 text-emerald-600 px-2 py-1 rounded font-medium">2-Step Process</span>
+                </div>
+                <p class="text-xs text-slate-500 mb-4">Step 1: Upload & preview image. Step 2: Adjust settings and get processed file back.</p>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                        <!-- Step 1: Upload -->
+                        <div class="mb-3">
+                            <label class="text-[11px] font-semibold text-slate-600 block mb-1">Step 1: Upload Image</label>
+                            <input type="file" id="img-input-2" accept="image/*" onchange="step1Upload(event)" class="w-full text-xs text-slate-500 file:mr-2 file:py-1.5 file:px-3 file:rounded-lg file:border-0 file:text-xs file:font-semibold file:bg-slate-100 file:text-slate-700 hover:file:bg-slate-200">
+                        </div>
+                        <!-- Step 2: Options & Download -->
+                        <div class="space-y-3 pt-2 border-t border-slate-100">
+                            <label class="text-[11px] font-semibold text-slate-600 block">Step 2: Adjust Options</label>
+                            <div>
+                                <div class="flex justify-between text-xs mb-1">
+                                    <span class="text-slate-500">Compression Quality:</span>
+                                    <strong id="q-val-2" class="text-brand-600">85%</strong>
+                                </div>
+                                <input type="range" id="q-slider-2" min="10" max="100" value="85" oninput="document.getElementById('q-val-2').innerText = this.value + '%'" class="w-full accent-brand-600">
+                            </div>
+                            <button onclick="step2ProcessAndDownload()" id="btn-step2" disabled class="w-full bg-slate-300 text-white font-medium text-xs py-2 rounded-xl transition">Process & Download Image</button>
+                        </div>
+                    </div>
+                    <div class="bg-slate-50 border border-slate-200 rounded-xl flex items-center justify-center p-2 min-h-[140px]">
+                        <img id="preview-img-2" class="max-w-full max-h-36 object-contain rounded hidden" alt="Preview">
+                        <span id="preview-placeholder-2" class="text-xs text-slate-400">No image loaded in step 1</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- TOOL 3: SVG PATH OPTIMIZER -->
+            <div class="bg-white border border-slate-200 rounded-2xl p-6 shadow-sm hover:shadow-md transition">
+                <div class="flex items-center justify-between mb-4">
+                    <h2 class="font-bold text-base text-slate-900 flex items-center gap-2">
+                        <span class="p-1 bg-brand-50 text-brand-600 rounded text-xs">03</span>
+                        SVG Path Optimizer
+                    </h2>
+                    <span class="text-xs bg-slate-100 text-slate-600 px-2 py-1 rounded">Vector</span>
+                </div>
+                <p class="text-xs text-slate-500 mb-3">Cleans commas and rounds path coordinates.</p>
+                <textarea id="svg-input" placeholder='M 10.1234,20.5678 L 30...' class="code-font w-full h-16 p-2 text-xs bg-slate-50 border border-slate-200 rounded-xl mb-2 resize-none"></textarea>
+                <button onclick="optimizeSVGPath()" class="w-full bg-slate-900 hover:bg-slate-800 text-white font-medium text-xs py-2 rounded-xl mb-2">Optimize</button>
+                <textarea id="svg-output" readonly placeholder="Output..." class="code-font w-full h-14 p-2 text-xs bg-slate-100 border border-slate-200 rounded-xl text-slate-700 resize-none"></textarea>
+            </div>
+
+            <!-- TOOL 4: WEB CRYPTO HASHER -->
+            <div class="bg-white border border-slate-200 rounded-2xl p-6 shadow-sm hover:shadow-md transition">
+                <div class="flex items-center justify-between mb-4">
+                    <h2 class="font-bold text-base text-slate-900 flex items-center gap-2">
+                        <span class="p-1 bg-brand-50 text-brand-600 rounded text-xs">04</span>
+                        Web Crypto Hasher
+                    </h2>
+                    <span class="text-xs bg-slate-100 text-slate-600 px-2 py-1 rounded">Crypto</span>
+                </div>
+                <p class="text-xs text-slate-500 mb-3">SHA-256 hashes locally via browser API.</p>
+                <input type="text" id="hash-input" placeholder="Plain text..." oninput="generateCryptoHash()" class="code-font w-full p-2 text-xs bg-slate-50 border border-slate-200 rounded-xl mb-2">
+                <input type="text" id="hash-output" readonly placeholder="Hash..." class="code-font w-full p-2 text-[11px] bg-slate-100 border border-slate-200 rounded-lg text-slate-700">
+            </div>
+
+            <!-- TOOL 5: CSS CLAMP CALCULATOR -->
+            <div class="bg-white border border-slate-200 rounded-2xl p-6 shadow-sm hover:shadow-md transition">
+                <div class="flex items-center justify-between mb-4">
+                    <h2 class="font-bold text-base text-slate-900 flex items-center gap-2">
+                        <span class="p-1 bg-brand-50 text-brand-600 rounded text-xs">05</span>
+                        CSS Fluid Clamp() Calc
+                    </h2>
+                    <span class="text-xs bg-slate-100 text-slate-600 px-2 py-1 rounded">CSS</span>
+                </div>
+                <p class="text-xs text-slate-500 mb-3">Calculates fluid font sizes.</p>
+                <div class="grid grid-cols-2 gap-2 mb-2">
+                    <input type="number" id="clamp-min" value="16" class="p-2 text-xs bg-slate-50 border border-slate-200 rounded-lg">
+                    <input type="number" id="clamp-max" value="32" class="p-2 text-xs bg-slate-50 border border-slate-200 rounded-lg">
+                </div>
+                <button onclick="calculateCSSClamp()" class="w-full bg-slate-900 hover:bg-slate-800 text-white font-medium text-xs py-2 rounded-xl mb-2">Calculate</button>
+                <input type="text" id="clamp-res" readonly class="code-font w-full p-2 text-xs bg-slate-100 border border-slate-200 rounded-xl text-brand-600 font-semibold">
+            </div>
+
+            <!-- TOOL 6: AI TEXT DETECTOR -->
+            <div class="bg-white border border-slate-200 rounded-2xl p-6 shadow-sm hover:shadow-md transition">
+                <div class="flex items-center justify-between mb-4">
+                    <h2 class="font-bold text-base text-slate-900 flex items-center gap-2">
+                        <span class="p-1 bg-brand-50 text-brand-600 rounded text-xs">06</span>
+                        Local AI Text Detector
+                    </h2>
+                    <span class="text-xs bg-amber-50 text-amber-600 px-2 py-1 rounded font-medium">AI Detector</span>
+                </div>
+                <p class="text-xs text-slate-500 mb-2">Checks texts for AI-typical sentence structures and buzzwords.</p>
+                <textarea id="ai-detect-input" placeholder="Paste text here..." class="w-full h-20 p-2 text-xs bg-slate-50 border border-slate-200 rounded-xl mb-2 resize-none"></textarea>
+                <button onclick="detectAI()" class="w-full bg-brand-600 hover:bg-brand-500 text-white font-medium text-xs py-2 rounded-xl mb-2 transition">Start Analysis</button>
+                <div id="ai-detect-result" class="text-xs bg-slate-100 p-2.5 rounded-xl border border-slate-200 text-slate-700">Result: Pending...</div>
+            </div>
+
+            <!-- TOOL 7: AI TEXT HUMANIZER & NATURALIZER -->
+            <div class="bg-white border border-slate-200 rounded-2xl p-6 shadow-sm hover:shadow-md transition lg:col-span-2">
+                <div class="flex items-center justify-between mb-4">
+                    <h2 class="font-bold text-base text-slate-900 flex items-center gap-2">
+                        <span class="p-1 bg-brand-50 text-brand-600 rounded text-xs">07</span>
+                        AI Text Humanizer & Naturalizer
+                    </h2>
+                    <span class="text-xs bg-purple-50 text-purple-600 px-2 py-1 rounded font-medium">Anti-AI / Humanizer</span>
+                </div>
+                <p class="text-xs text-slate-500 mb-3">Makes AI text sound more human: Removes robotic filler phrases and adds subtle, natural variations depending on text length.</p>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <textarea id="humanize-input" placeholder="Paste robotic AI text here..." class="w-full h-32 p-3 text-xs bg-slate-50 border border-slate-200 rounded-xl resize-none focus:outline-none focus:ring-2 focus:ring-brand-500"></textarea>
+                    <div class="flex flex-col justify-between">
+                        <textarea id="humanize-output" readonly placeholder="More human-like text appears here..." class="w-full h-24 p-3 text-xs bg-slate-100 border border-slate-200 rounded-xl resize-none mb-2 text-slate-700"></textarea>
+                        <button onclick="humanizeText()" class="w-full bg-purple-600 hover:bg-purple-500 text-white font-medium text-xs py-2.5 rounded-xl transition shadow-sm">Make Text More Natural</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- IMPRINT -->
+        <section id="imprint" class="mt-12 bg-white border border-slate-200 rounded-2xl p-6 sm:p-8 shadow-sm">
+            <div class="max-w-3xl">
+                <h3 class="text-xl font-bold text-slate-900 mb-3">Imprint</h3>
+                <div class="text-xs sm:text-sm text-slate-600 space-y-2 leading-relaxed">
+                    <p><strong>Information according to § 5 TMG:</strong><br>
+                    Matteo Neumann<br>
+                    Kirchgellersen, Lower Saxony, Germany</p>
+                    <p><strong>Contact:</strong><br>
+                    Email: kontakt@deine-domain.de</p>
+                    <p class="text-slate-400 text-xs">Disclaimer: All tools perform calculations exclusively locally in the browser.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="bg-white border-t border-slate-200 py-6 text-center text-xs text-slate-500 px-6">
+        <p>&copy; 2026 DevToolkit Pro. All operations performed client-side in the browser.</p>
+    </footer>
+
+    <!-- SCRIPT LOGIC -->
+    <script>
+        // Option 1: Fast 1-Step WebP Compressor
+        function compressImageOpt1(event) {
+            const file = event.target.files[0];
+            if(!file) return;
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                const img = new Image();
+                img.onload = function() {
+                    const canvas = document.createElement('canvas');
+                    canvas.width = img.width;
+                    canvas.height = img.height;
+                    canvas.getContext('2d').drawImage(img, 0, 0);
+                    const link = document.getElementById("dl-link-1");
+                    link.href = canvas.toDataURL("image/webp", 0.8);
+                    link.download = "optimized-opt1.webp";
+                    link.classList.remove("hidden");
+                    link.innerText = "Download WebP directly";
+                }
+                img.src = e.target.result;
+            }
+            reader.readAsDataURL(file);
+        }
+
+        // Option 2 (2-Step): Step 1 - Upload & Preview
+        let uploadedImageObj = null;
+        function step1Upload(event) {
+            const file = event.target.files[0];
+            if(!file) return;
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                const img = new Image();
+                img.onload = function() {
+                    uploadedImageObj = img;
+                    const preview = document.getElementById("preview-img-2");
+                    preview.src = e.target.result;
+                    preview.classList.remove("hidden");
+                    document.getElementById("preview-placeholder-2").classList.add("hidden");
+                    
+                    const btn = document.getElementById("btn-step2");
+                    btn.disabled = false;
+                    btn.classList.replace("bg-slate-300", "bg-brand-600");
+                    btn.classList.add("hover:bg-brand-500");
+                }
+                img.src = e.target.result;
+            }
+            reader.readAsDataURL(file);
+        }
+
+        // Option 2 (2-Step): Step 2 - Process & Download
+        function step2ProcessAndDownload() {
+            if(!uploadedImageObj) return;
+            const canvas = document.createElement('canvas');
+            canvas.width = uploadedImageObj.width;
+            canvas.height = uploadedImageObj.height;
+            canvas.getContext('2d').drawImage(uploadedImageObj, 0, 0);
+
+            const q = parseInt(document.getElementById("q-slider-2").value) / 100;
+            const link = document.createElement('a');
+            link.download = '2-step-processed.webp';
+            link.href = canvas.toDataURL("image/webp", q);
+            link.click();
+        }
+
+        // SVG Path Optimizer
+        function optimizeSVGPath() {
+            let path = document.getElementById("svg-input").value;
+            if(!path) return;
+            path = path.replace(/,/g, ' ').replace(/\s+/g, ' ').trim();
+            path = path.replace(/[-+]?\d*\.?\d+/g, n => parseFloat(parseFloat(n).toFixed(2)));
+            document.getElementById("svg-output").value = path;
+        }
+
+        // Web Crypto Hasher
+        async function generateCryptoHash() {
+            const msg = document.getElementById("hash-input").value;
+            if(!msg) { document.getElementById("hash-output").value = ""; return; }
+            const enc = new TextEncoder().encode(msg);
+            const buf = await crypto.subtle.digest('SHA-256', enc);
+            document.getElementById("hash-output").value = Array.from(new Uint8Array(buf)).map(b => b.toString(16).padStart(2, '0')).join('');
+        }
+
+        // CSS Clamp
+        function calculateCSSClamp() {
+            const minS = parseFloat(document.getElementById("clamp-min").value);
+            const maxS = parseFloat(document.getElementById("clamp-max").value);
+            const slope = (maxS - minS) / (1200 - 320);
+            const yAxis = -320 * slope + minS;
+            document.getElementById("clamp-res").value = `clamp(${(minS/16).toFixed(3)}rem, ${(yAxis/16).toFixed(3)}rem + ${(slope*100).toFixed(3)}vw, ${(maxS/16).toFixed(3)}rem);`;
+        }
+
+        // AI Text Detector (Heuristic Analysis)
+        function detectAI() {
+            const text = document.getElementById("ai-detect-input").value.trim();
+            const out = document.getElementById("ai-detect-result");
+            if(!text) { out.innerText = "Please enter text."; return; }
+
+            const aiWords = ["furthermore", "moreover", "essentially", "in conclusion", "it is important to note", "dynamically", "serves as", "evident", "in today's digital age", "complexity"];
+            let count = 0;
+            const lower = text.toLowerCase();
+            aiWords.forEach(w => { if(lower.includes(w)) count++; });
+
+            let score = Math.min(95, Math.max(10, count * 22 + (text.length > 500 ? 15 : 5)));
+            out.innerHTML = `AI text probability: <strong class="${score > 50 ? 'text-rose-600' : 'text-emerald-600'}">${score}%</strong> (${count} AI-typical phrases detected).`;
+        }
+
+        // AI Text Humanizer & Naturalizer
+        function humanizeText() {
+            let text = document.getElementById("humanize-input").value.trim();
+            if(!text) return;
+
+            text = text.replace(/In conclusion, it can be said that/gi, "Basically")
+                     .replace(/Furthermore/gi, "Also")
+                     .replace(/It is important to mention that/gi, "Keep in mind that")
+                     .replace(/In today's fast-paced world/gi, "Nowadays");
+
+            let sentences = text.split(/(?<=[.?!])\s+/);
+            let processed = sentences.map((sent, index) => {
+                if (sent.length > 30 && Math.random() < 0.4) {
+                    sent = sent.replace(" ", "  ");
+                }
+                if (index === sentences.length - 1 && Math.random() < 0.3) {
+                    sent = sent.replace(/[.?!]$/, "");
+                }
+                return sent;
+            });
+
+            document.getElementById("humanize-output").value = processed.join(" ");
+        }
+    </script>
+</body>
+</html>
